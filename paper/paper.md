@@ -45,20 +45,19 @@ Please keep sections to a maximum of only two levels.
 
 ## Tables and figures
 
-Tables can be added in the following way, though alternative are possible:
+Tables can be added in the following way, though other Markdown alternatives are possible:
 
-Table 1
 | Header 1 | Header 2 |
 | -------- | -------- |
 | item 1 | item 2 |
 | item 3 | item 4 |
 
+Table: Note that table caption is automatically numbered.
+
 Tables and figures should be given before the are mentioned in the main text.
 A figure is added with:
 
-![BioHackrXiv logo](./biohackrxiv.png)
- 
-Figure 1. The BioHackrXiv logo.
+![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
 
 # Other main section on your manuscript level 1
 
