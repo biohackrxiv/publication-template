@@ -12,9 +12,9 @@ button to use it as a template to start a new BioHackrXiv Publication:
 
 ## Step 2: Configuring the Markdown
 
-The publication Markdown is found in the `paper/paper.md` file. At the top you can a blob
-of YAML code with metadata. It is important to get this part correct, because otherwise the PDF
-generation will feel. It looks like this:
+The publication Markdown is found in the `paper/paper.md` file. At the top you can edit the
+YAML code with metadata. It is important to get this part correct, because otherwise the PDF
+generation will fail. The metadata looks like this:
 
 ```yaml
 title: 'BioHackEU22 Report for Project 26: Shedding the light on unknown chemical substances'
@@ -72,8 +72,8 @@ The following fields should only be changed if you are not writing for the BioHa
 * biohackathon_url:   "https://biohackathon-europe.org/"
 * biohackathon_location: "Paris, France, 2022"
 
-## Step 3: Previewing the paper as RDF
+## Step 3: Previewing the paper as PDF
 
 This repository can be converted into a preview PDF with BioHackrXiv [Preview Server](http://preview.biohackrxiv.org/).
-This website asks for the link to your repository and will automatically find the `paper.md` and create an PDF.
+The preview website asks for the link to your repository and will automatically find the `paper.md` and create an PDF.
 
