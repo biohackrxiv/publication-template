@@ -27,7 +27,7 @@ group: Unknown chemical substances group
 git_url: https://github.com/biohackrxiv/publication-template
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: Egon Willighagen \emph{et al.}
+authors_short: First Author \emph{et al.}
 ---
 
 
@@ -45,7 +45,7 @@ Please keep sections to a maximum of only two levels.
 
 ## Tables and figures
 
-Tables can be added in the following way, though alternative are possible:
+Tables can be added in the following way, though alternatives are possible:
 
 Table 1
 | Header 1 | Header 2 |
@@ -53,7 +53,7 @@ Table 1
 | item 1 | item 2 |
 | item 3 | item 4 |
 
-Tables and figures should be given before the are mentioned in the main text.
+Tables and figures should be given before they are mentioned in the main text.
 A figure is added with:
 
 ![BioHackrXiv logo](./biohackrxiv.png)
@@ -70,14 +70,14 @@ Lists can be added with:
 # Citation Typing Ontology annotation
 
 You can use CiTO annotations, as explained in [this BioHackathon Europe 2021 write up](https://raw.githubusercontent.com/biohackrxiv/bhxiv-metadata/main/doc/elixir_biohackathon2021/paper.md) and [this CiTO Pilot](https://www.biomedcentral.com/collections/cito).
-Using this template, you can cite an article and indicate why we cite that article about DisGeNET-RDF [@citesAsAuthority:Queralt2016].
+Using this template, you can cite an article and indicate why you cite that article, for instance DisGeNET-RDF [@citesAsAuthority:Queralt2016].
 
 Possible CiTO typing annotation include:
 
 * citesAsDataSource: when you point the reader to a source of data which may explain a claim
 * usesDataFrom: when you reuse somehow (and elaborate on) the data in the cited entity
 * usesMethodIn
-* citesAsAuthorit
+* citesAsAuthority
 * discusses
 * extends
 * agreesWith
