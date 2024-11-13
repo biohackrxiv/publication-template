@@ -1,0 +1,29 @@
+name: Generate PDF
+on:
+  push:
+    branches: [ main ]
+jobs:
+  gen-pdf:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - uses: kohlerdominik/docker-run-action@v2.0.0
+      with:
+        image: ghcr.io/biohackrxiv/bhxiv-gen-pdf:master
+        volumes: ${{ github.workspace }}:/work
+        workdir: /work
+        run: |
+          gen-pdf paper
+    - name: Create info file
+      run: |
+         echo -e "ref: $GITHUB_REF \ncommit: $GITHUB_SHA\nbuild: $(date +"%Y-%m-%dT%H:%M:%SZ")" \
+         > info.txt
+    - name: Update latest release
+      uses: pyTooling/Actions/releaser@main
+      with:
+        tag: latest
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          paper/paper.pdf
+          info.txt
