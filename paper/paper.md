@@ -14,7 +14,8 @@ authors:
 affiliations:
   - name: First Affiliation
     index: 1
-  - name: Second Affiliation
+  - name: ELIXIR Europe
+    ror: 044rwnt51
     index: 2
 date: 8 November 2023
 cito-bibliography: paper.bib
@@ -34,6 +35,28 @@ authors_short: First Author \emph{et al.}
 # Introduction
 
 As part of the BioHackathon Europe 2023, we here report...
+
+## Author information
+
+Information about the authors is given in the [YAML](https://en.wikipedia.org/wiki/YAML) format at the top of this template.
+For authors you provide their names, their affiliations, and ideally their [ORCID](https://orcid.org/)
+identifier. For affiliations, the [Research Organization Registry](https://ror.org/) (ROR) identifier can be given.
+For example, this is the author information for this template:
+
+```yaml
+authors:
+  - name: First Author
+    affiliation: 1
+  - name: Last Author
+    orcid: 0000-0000-0000-0000
+    affiliation: 2
+affiliations:
+  - name: First Affiliation
+    index: 1
+  - name: ELIXIR Europe
+    ror: 044rwnt51
+    index: 2
+```
 
 # Formatting
 
