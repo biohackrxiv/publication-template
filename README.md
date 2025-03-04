@@ -29,6 +29,7 @@ authors:
     affiliation: 1
 affiliations:
   - name: Dept of Bioinformatics - BiGCaT, NUTRIM, FHML, Maastricht University, Maastricht, NL
+    ror: 02jz4aj89
     index: 1
 date: 7 November 2022
 cito-bibliography: paper.bib
