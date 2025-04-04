@@ -66,9 +66,21 @@ This document use Markdown and you can look at [this tutorial](https://www.markd
 
 Please keep sections to a maximum of only two levels.
 
-## Tables and figures
+## Tables
 
 Tables can be added in the following way, though alternatives are possible:
+
+```markdown
+Table: Note that table caption is automatically numbered and should be
+given before the table itself.
+
+| Header 1 | Header 2 |
+| -------- | -------- |
+| item 1 | item 2 |
+| item 3 | item 4 |
+```
+
+This gives:
 
 Table: Note that table caption is automatically numbered and should be
 given before the table itself.
@@ -78,9 +90,23 @@ given before the table itself.
 | item 1 | item 2 |
 | item 3 | item 4 |
 
+## Figures
+
 A figure is added with:
 
+```markdown
 ![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
+```
+
+This gives:
+
+![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
+
+Figures can be scaled by adding the width or height to the Markdown like this:
+
+```markdown
+![Caption for BioHackrXiv logo figure](./biohackrxiv.png){ width=50px }
+```
 
 # Other main section on your manuscript level 1
 
