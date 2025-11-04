@@ -27,3 +27,10 @@ jobs:
         files: |
           paper/paper.pdf
           info.txt
+    - name: Upload generated PDF as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: PDF and info.txt
+        path: |
+          paper/paper.pdf
+          info.txt
