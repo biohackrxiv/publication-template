@@ -8,9 +8,11 @@ tags:
 authors:
   - name: First Author
     affiliation: 1
+    role: Writing – original draft
   - name: Last Author
     orcid: 0000-0000-0000-0000
     affiliation: 2
+    role: Conceptualization, Writing – review & editing
 affiliations:
   - name: First Affiliation
     index: 1
