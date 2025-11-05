@@ -41,17 +41,78 @@ As part of the BioHackathon Europe 2023, we here report...
 ## Author information
 
 Information about the authors is given in the [YAML](https://en.wikipedia.org/wiki/YAML) format at the top of this template.
-For authors you provide their names, their affiliations, and ideally their [ORCID](https://orcid.org/)
-identifier. For affiliations, the [Research Organization Registry](https://ror.org/) (ROR) identifier can be given.
-For example, this is the author information for this template:
+For authors you provide their names, their affiliations. That is the minimum, but as BioHackrXiv is moving to a situation
+where more metadata is shared, and used by, for example, EuropePMC, adding additional information ie encouraged.
+
+BioHackathons is about hacking together, and the minimal number of authors for reports is two. This makes a minimal example
+look like this:
 
 ```yaml
 authors:
   - name: First Author
     affiliation: 1
   - name: Last Author
+    affiliation: 2
+affiliations:
+  - name: First Affiliation
+    index: 1
+  - name: ELIXIR Europe
+    index: 2
+```
+
+### Author identifiers
+
+Ideally, authors provide their [ORCID](https://orcid.org/) identifier. For affiliations, It is added with the `orcid:` field.
+So, and author record would look like this:
+
+```yaml
+authors:
+  - name: First Author
+    affiliation: 1
+    orcid: 0000-0000-0000-0000
+```
+
+### Research Organization Registry identifiers
+
+Matching the author identifier, the affiliations can be further specified with the
+[Research Organization Registry](https://ror.org/) (ROR) identifier.
+For example, this is the affiliation identifier can be added with the `ror:` field:
+
+```yaml
+affiliations:
+  - name: ELIXIR Europe
+    ror: 044rwnt51
+    index: 2
+```
+
+### Contributor Role Taxonomy
+
+A last feature since is minimal support for the Contributor Role Taxonomy (CRediT). You
+can specify the role of authors in writing the report with the `role:` field. However,
+the authors are responsible for selection the right terms from [CRediT](https://credit.niso.org/).
+An example looks like this:
+
+```yaml
+authors:
+  - name: First Author
+    affiliation: 1
+    orcid: 0000-0000-0000-0000
+    role: Conceptualization, Writing – review & editing
+```
+
+### A full examples
+
+A full example then has this structure:
+
+```yaml
+authors:
+  - name: First Author
+    affiliation: 1
+    role: Writing – original draft
+  - name: Last Author
     orcid: 0000-0000-0000-0000
     affiliation: 2
+    role: Conceptualization, Writing – review & editing
 affiliations:
   - name: First Affiliation
     index: 1
