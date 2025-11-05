@@ -54,7 +54,8 @@ group: Project 26
 git_url: https://github.com/yourOrganization/your_report_repo
 ```
 
-The `git_url:` field must have the link to the GitHub repository with your preprint (draft).
+The [BioHackrXiv meeting pages](https://index.biohackrxiv.org/meetings) provide content to use for the first
+three fields. The `git_url:` field must have the link to the GitHub repository with your preprint (draft).
 
 ## Author information
 
