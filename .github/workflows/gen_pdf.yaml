@@ -31,14 +31,6 @@ jobs:
       run: |
          echo -e "ref: $GITHUB_REF \ncommit: $GITHUB_SHA\nbuild: $(date +"%Y-%m-%dT%H:%M:%SZ")" \
          > info.txt
-    - name: Update latest release
-      uses: pyTooling/Actions/releaser@main
-      with:
-        tag: latest
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
-          paper/paper.pdf
-          info.txt
     - name: Upload generated PDF as artifact
       uses: actions/upload-artifact@v4
       with:
