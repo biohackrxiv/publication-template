@@ -38,6 +38,24 @@ authors_short: First Author \emph{et al.}
 
 As part of the BioHackathon Europe 2023, we here report...
 
+## Meeting information
+
+If you want to submit a preprint to BioHackrXiv, first check if your meeting is registered. You can find a list
+of meetings [here](https://index.biohackrxiv.org/meetings). If your meeting is missing, please contact your meeting
+organizers. The above list also provides information on the YAML fields with information about the meeting.
+
+The following fields need to be given:
+
+```YAML
+biohackathon_name: "BioHackathon Europe 2023"
+biohackathon_url:   "https://biohackathon-europe.org/"
+biohackathon_location: "Barcelona, Spain, 2023"
+group: Project 26
+git_url: https://github.com/yourOrganization/your_report_repo
+```
+
+The `git_url:` field must have the link to the GitHub repository with your preprint (draft).
+
 ## Author information
 
 Information about the authors is given in the [YAML](https://en.wikipedia.org/wiki/YAML) format at the top of this template.
