@@ -84,3 +84,14 @@ figures, tables, and annotate citations with the Citation Typing Ontology.
 This repository can be converted into a preview PDF with BioHackrXiv [Preview Server](http://preview.biohackrxiv.org/).
 The preview website asks for the link to your repository and will automatically find the `paper.md` and create an PDF.
 
+## Troubleshooting
+
+### The first page is badly formatted
+
+Sometimes the list of authors plus affiliations runs over the page. We are working on a fix, but in the mean time you can try to shorten the affiliations. If that does not work move the affiliations into a repo and put the affiliations on a web page and use something like
+
+```yaml
+affiliations:
+  - name: For remaining affiliations see \url{https://github.com/project/etc} \vspace{0.2in}
+    index: \*
+```
