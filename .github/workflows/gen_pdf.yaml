@@ -2,39 +2,88 @@ name: Generate PDF
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   gen-pdf:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: biohackathon name given?
+
+    - name: Validate metadata
       run: |
-        sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md | grep biohackathon_name
-    - name: biohackathon location given?
-      run: |
-        sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md | grep biohackathon_location
-    - name: biohackathon url given?
-      run: |
-        sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md | grep biohackathon_url
-    - name: Git repository given?
-      run: |
-        sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md | grep git_url
-    - uses: kohlerdominik/docker-run-action@v2.0.0
+        # Extract YAML front matter
+        YAML=$(sed -n '/^---$/,/^---$/{//b;p}' paper/paper.md)
+        ERRORS=""
+        for field in biohackathon_name biohackathon_location biohackathon_url git_url; do
+          if ! echo "$YAML" | grep -q "$field"; then
+            ERRORS="${ERRORS}  - Missing required field: ${field}\n"
+          fi
+        done
+        if [ -n "$ERRORS" ]; then
+          echo "::error::Metadata validation failed"
+          echo -e "The following required fields are missing from paper/paper.md:\n${ERRORS}"
+          echo "See https://index.biohackrxiv.org/for-submitters/ for details on required metadata."
+          exit 1
+        fi
+        echo "All required metadata fields present."
+
+    - name: Generate PDF
+      uses: kohlerdominik/docker-run-action@v2.0.0
       with:
         image: ghcr.io/biohackrxiv/bhxiv-gen-pdf:master
         volumes: ${{ github.workspace }}:/work
         workdir: /work
         run: |
           gen-pdf paper
+
     - name: Create info file
       run: |
          echo -e "ref: $GITHUB_REF \ncommit: $GITHUB_SHA\nbuild: $(date +"%Y-%m-%dT%H:%M:%SZ")" \
          > info.txt
+
     - name: Upload generated PDF as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: PDF and info.txt
+        name: paper
         path: |
           paper/paper.pdf
           info.txt
+
+    - name: Comment on PR with PDF link
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+          const body = `### PDF Preview Ready\n\nThe PDF has been generated successfully. Download it from the [Actions artifacts](${runUrl}#artifacts).`;
+          // Check for existing bot comment to avoid duplicates
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+          const botComment = comments.find(c =>
+            c.user.type === 'Bot' && c.body.includes('### PDF Preview Ready')
+          );
+          if (botComment) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: botComment.id,
+              body: body,
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body,
+            });
+          }
