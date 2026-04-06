@@ -10,6 +10,9 @@ button (after logging in) to use it as a template to start a new BioHackrXiv Pub
 
 ![Screenshot of the green "Use this template" button.](paper/use-this-template.png)
 
+Note: after you have cloned this template, you are expected to change the license to match that
+of your preprint, allowing you to submit the preprint as CC-BY to BioHackrXiv.
+
 ## Step 2: Configuring the Markdown
 
 The publication Markdown is found in the `paper/paper.md` file. At the top you can edit the
