@@ -243,3 +243,15 @@ There is a general `cites` intention, but this is already implied and should be 
 ...
 
 ## References
+
+# Appendices
+
+If you want to Appendix (-ces) to show up after the references, add a `<div>` element
+after the header, like this markdown:
+
+```markdown
+## References
+
+<div id="refs"></div>
+```
+
