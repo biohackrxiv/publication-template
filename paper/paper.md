@@ -228,8 +228,8 @@ Possible CiTO typing annotation include:
 * agreesWith
 * disagreesWith
 * updates
-* citation: generic citation
 
+There is a general `cites` intention, but this is already implied and should be left out.
 
 # Results
 
