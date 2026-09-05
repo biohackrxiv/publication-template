@@ -242,6 +242,7 @@ There is a general `cites` intention, but this is already implied and should be 
 
 ...
 
+# References
 
 ```{=latex}
 \AtEndDocument{%
