@@ -242,16 +242,30 @@ There is a general `cites` intention, but this is already implied and should be 
 
 ...
 
-## References
+
+```{=latex}
+\AtEndDocument{%
+```
 
 # Appendices
 
-If you want to Appendix (-ces) to show up after the references, add a `<div>` element
+If you want the Appendix (-ces) to show up after the references, wrap them in 
 after the header, like this markdown:
 
 ```markdown
-## References
-
-<div id="refs"></div>
+```{=latex}
+\AtEndDocument{%
 ```
 
+# Appendix A
+
+Your content
+
+```{=latex}
+}
+```
+```
+
+```{=latex}
+}
+```
