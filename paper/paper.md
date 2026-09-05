@@ -251,21 +251,8 @@ There is a general `cites` intention, but this is already implied and should be 
 # Appendices
 
 If you want the Appendix (-ces) to show up after the references, wrap them in 
-after the header, like this markdown:
-
-<pre>
-```{=latex}
-\AtEndDocument{%
-```
-
-# Appendix A
-
-Your content
-
-```{=latex}
-}
-```
-</pre>
+after the header, like done in this Markdown file. Look at the [source](paper.md)
+to see the exact structure.
 
 ```{=latex}
 }
