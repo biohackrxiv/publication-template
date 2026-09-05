@@ -252,7 +252,7 @@ There is a general `cites` intention, but this is already implied and should be 
 If you want the Appendix (-ces) to show up after the references, wrap them in 
 after the header, like this markdown:
 
-```markdown
+<pre>
 ```{=latex}
 \AtEndDocument{%
 ```
@@ -264,7 +264,7 @@ Your content
 ```{=latex}
 }
 ```
-```
+</pre>
 
 ```{=latex}
 }
