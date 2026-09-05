@@ -30,6 +30,8 @@ authors:
   - name: Egon Willighagen
     orcid: 0000-0001-7542-0286
     affiliation: 1
+  - name: Obligatory Second Author
+    affiliation: 1
 affiliations:
   - name: Dept of Bioinformatics - BiGCaT, NUTRIM, FHML, Maastricht University, Maastricht, NL
     ror: 02jz4aj89
