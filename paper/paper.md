@@ -182,13 +182,22 @@ A figure is added with:
 
 This gives:
 
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
+![Caption for BioHackrXiv logo figure \label{figureCode}](./biohackrxiv.png)
 
 Figures can be scaled by adding the width or height to the Markdown like this:
 
 ```markdown
 ![Caption for BioHackrXiv logo figure](./biohackrxiv.png){ width=50px }
 ```
+
+You can add cross references to figures by adding a LaTeX `\label{figureCode}` to
+the label of the Markdown figure and then use `\ref{figureCode}` to cite it:
+
+```markdown
+![Caption for BioHackrXiv logo figure \label{figureCode}](./biohackrxiv.png){ width=50px }
+```
+
+This way, we can cite Figure \ref{figureCode}.
 
 # Other main section on your manuscript level 1
 
