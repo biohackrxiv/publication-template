@@ -9,6 +9,12 @@ permissions:
   contents: write
   pull-requests: write
 
+# Only one build per ref at a time. A newer push supersedes an in-flight build,
+# so the PDF that gets committed is always the one for the newest paper.md.
+concurrency:
+  group: gen-pdf-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gen-pdf:
     runs-on: ubuntu-latest
@@ -62,7 +68,21 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add paper/paper.pdf
-        git diff --cached --quiet && echo "No changes to PDF" || git commit -m "Update paper.pdf [skip ci]" && git push
+        if git diff --cached --quiet; then
+          echo "No changes to PDF"
+          exit 0
+        fi
+        git commit -m "Update paper.pdf [skip ci]"
+        for attempt in 1 2 3 4 5; do
+          if git push; then
+            exit 0
+          fi
+          echo "Push rejected (attempt $attempt); rebasing onto origin/$GITHUB_REF_NAME"
+          git pull --rebase origin "$GITHUB_REF_NAME" || exit 1
+          sleep $((attempt * 3))
+        done
+        echo "::error::Could not push the regenerated PDF after 5 attempts"
+        exit 1
 
     - name: Comment on PR with PDF link
       if: github.event_name == 'pull_request'
