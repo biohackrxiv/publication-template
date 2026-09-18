@@ -82,7 +82,7 @@ The following fields should only be changed if you are not writing for the BioHa
 ## Step 3: Writing the article
 
 A full Markdown example is given in [paper/paper.md](paper/paper.md). This includes instructions how to include
-figures, tables, and annotate citations with the Citation Typing Ontology.
+figures, tables, Mermaid diagrams, and annotate citations with the Citation Typing Ontology.
 
 ## Step 4: Previewing the paper as PDF
 
