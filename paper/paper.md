@@ -199,6 +199,19 @@ the label of the Markdown figure and then use `\ref{figureCode}` to cite it:
 
 This way, we can cite Figure \ref{figureCode}.
 
+## Mermaid graphs
+
+[Mermaid](https://mermaid.js.org/) provides a solution to put diagrams in Markdown. BioHackrXiv
+added support for this in 2026. This is an example of embedding a graph:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 # Other main section on your manuscript level 1
 
 Lists can be added with:
